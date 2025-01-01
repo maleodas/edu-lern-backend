@@ -1,6 +1,5 @@
 import express from 'express';
 import { body } from 'express-validator';
-import { requestApproval } from '../controllers/adminController';
 import {
   deleteUser,
   forgotPasswordUser,
@@ -50,6 +49,5 @@ router.post('/user/updatePassword', auth, updatePasswordUser);
 router.post('/user/forgotPassword', forgotPasswordUser);
 router.post('/user/updateForgotPassword', updateForgotPasswordUser);
 router.get('/user/getByRequest', getUserByRequest);
-router.post('/user/requestApproval/:id', requestApproval);
 
 export { router };
