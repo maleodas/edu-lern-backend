@@ -5,7 +5,6 @@ import {
   forgotPasswordUser,
   getAllUser,
   getUserById,
-  getUserByRequest,
   loginUser,
   signUpUser,
   updateForgotPasswordUser,
@@ -48,6 +47,5 @@ router.get('/user/getById/:id', getUserById);
 router.post('/user/updatePassword', auth, updatePasswordUser);
 router.post('/user/forgotPassword', forgotPasswordUser);
 router.post('/user/updateForgotPassword', updateForgotPasswordUser);
-router.get('/user/getByRequest', getUserByRequest);
 
 export { router };

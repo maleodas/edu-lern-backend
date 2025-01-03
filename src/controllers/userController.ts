@@ -11,22 +11,11 @@ export const signUpUser = async (req, res) => {
             in: 'body',
             description: 'Add a application',
             schema: {
-              dealerMaster: '',
-              dealerID: '',
-              dealerParent: '',
-              locationCode: '',
-              saleCode: '',
-              outletCode: '',
-              dealerMapCode: '',
-              billSeriesNo: '',
-              locationDescription: '',
-              dealerName: '',
-              dealerCity: '',
+              fullName: '',
+              userName: '',
               email: '',
-              dealerAdminName: '',
-              dealerAdminContactNo: '',
               password: '',
-              request: '',
+              role: '',
             }
     } */
   try {
@@ -187,22 +176,11 @@ export const updateUser = async (req, res) => {
             in: 'body',
             description: 'Add a application',
             schema: {
-              dealerMaster: '',
-              dealerID: '',
-              dealerParent: '',
-              locationCode: '',
-              saleCode: '',
-              outletCode: '',
-              dealerMapCode: '',
-              billSeriesNo: '',
-              locationDescription: '',
-              dealerName: '',
-              dealerCity: '',
+              fullName: '',
+              userName: '',
               email: '',
-              dealerAdminName: '',
-              dealerAdminContactNo: '',
               password: '',
-              request: '',
+              role: '',
             }
     } */
   try {
@@ -357,24 +335,5 @@ export const updateForgotPasswordUser = async (req, res) => {
       err.status = 500;
     }
     res.status(err.status).json({ message: err.message });
-  }
-};
-
-export const getUserByRequest = async (req, res) => {
-  // #swagger.tags = ['User']
-  try {
-    const limit = req.query.limit ? parseInt(req.query.limit) : 0;
-    const skip = req.query.skip ? parseInt(req.query.skip) : 0;
-    const users = await userModel
-      .find({ request: false })
-      .limit(limit ? limit : 0)
-      .skip(skip ? skip : 0);
-    await res.json(users);
-  } catch (error) {
-    if (!error.status) {
-      error.status = 500;
-    }
-
-    res.status(error.status).json({ message: error.message });
   }
 };
